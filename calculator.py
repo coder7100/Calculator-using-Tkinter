@@ -44,9 +44,18 @@ button9 = Button(text="9", padx=40, pady=20, command=lambda: button_click(9))
 button0 = Button(text="0", padx=40, pady=20, command=lambda: button_click(0))
 button_add = Button(text="+", padx=40, pady=20,
                     command=lambda: button_click(101))
-button_equal = Button(text="=", padx=89, pady=20,
+button_sub = Button(text="-", padx=40, pady=20,
+                    command=lambda: button_click(101))
+button_div = Button(text="÷", padx=40, pady=20,
+                    command=lambda: button_click(101))
+button_mul = Button(text="x", padx=40, pady=20,
+                    command=lambda: button_click(101))
+button_sqrt = Button(text="√", padx=40, pady=20,
+                     command=lambda: button_click(101))
+
+button_equal = Button(text="=", padx=40, pady=20,
                       command=lambda: button_click(102))
-button_clear = Button(text="clear", padx=89, pady=20,
+button_clear = Button(text="clear", padx=30, pady=20,
                       command=lambda: button_click(100))
 
 
@@ -63,9 +72,13 @@ button8.grid(column=1, row=3)
 button9.grid(column=2, row=3)
 
 button0.grid(column=0, row=4)
-button_add.grid(column=0, row=5)
+button_add.grid(column=1, row=4)
+button_sub.grid(column=2, row=4)
+button_div.grid(column=0, row=5)
+button_mul.grid(column=1, row=5)
+button_sqrt.grid(column=2, row=5)
 
-button_clear.grid(column=1, row=4, columnspan=2)
-button_equal.grid(column=1, row=5, columnspan=2)
+button_clear.grid(column=0, row=6, columnspan=2)
+button_equal.grid(column=1, row=6, columnspan=2)
 
 window.mainloop()
