@@ -20,6 +20,10 @@ button7 = Button(text="7", padx=40, pady=20)
 button8 = Button(text="8", padx=40, pady=20)
 button9 = Button(text="9", padx=40, pady=20)
 button0 = Button(text="0", padx=40, pady=20)
+button_add = Button(text="+", padx=40, pady=20)
+button_equal = Button(text="=", padx=89, pady=20)
+button_clear = Button(text="clear", padx=89, pady=20)
+
 
 button1.grid(column=0, row=1)
 button2.grid(column=1, row=1)
@@ -34,5 +38,9 @@ button8.grid(column=1, row=3)
 button9.grid(column=2, row=3)
 
 button0.grid(column=0, row=4)
+button_add.grid(column=0, row=5)
+
+button_clear.grid(column=1, row=4, columnspan=2)
+button_equal.grid(column=1, row=5, columnspan=2)
 
 window.mainloop()
