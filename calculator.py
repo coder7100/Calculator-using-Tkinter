@@ -41,25 +41,22 @@ def operation(op):
         entry1.delete(0, END)
 
     elif op == "sqrt":
-        first_num = int(entry1.get())
         operator = "sqrt"
+        entry1.delete(0, END)
 
     elif op == "=":
+        second_num = int(entry1.get())
 
         if operator == "+":
-            second_num = int(entry1.get())
             result = first_num+second_num
         if operator == "-":
-            second_num = int(entry1.get())
             result = first_num-second_num
         if operator == "x":
-            second_num = int(entry1.get())
             result = first_num*second_num
         if operator == "/":
-            second_num = int(entry1.get())
             result = first_num/second_num
         if operator == "sqrt":
-            result = sqrt(first_num)
+            result = sqrt(second_num)
         entry1.delete(0, END)
         entry1.insert(0, str(result))
 
