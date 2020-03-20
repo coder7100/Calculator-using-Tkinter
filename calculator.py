@@ -1,6 +1,8 @@
 from tkinter import *
+from math import sqrt
 
 window = Tk()
+window.title("Calculator")
 # window.geometry("400x400")
 
 # --functions---
@@ -9,20 +11,57 @@ window = Tk()
 def button_click(number):
     if number == 100:
         entry1.delete(0, END)
-    elif number == 101:
-        global first_num
-        first_num = int(entry1.get())
-        entry1.delete(0, END)
-    elif number == 102:
-        second_num = int(entry1.get())
-        addition = first_num+second_num
-        entry1.delete(0, END)
-        entry1.insert(0, str(addition))
 
     else:
         current = entry1.get()
         entry1.delete(0, END)
         entry1.insert(0, str(current)+str(number))
+
+
+def operation(op):
+    global first_num, operator
+    if op == "+":
+        first_num = int(entry1.get())
+        operator = "+"
+        entry1.delete(0, END)
+
+    elif op == "-":
+        first_num = int(entry1.get())
+        operator = "-"
+        entry1.delete(0, END)
+
+    elif op == "x":
+        first_num = int(entry1.get())
+        operator = "x"
+        entry1.delete(0, END)
+
+    elif op == "/":
+        first_num = int(entry1.get())
+        operator = "/"
+        entry1.delete(0, END)
+
+    elif op == "sqrt":
+        first_num = int(entry1.get())
+        operator = "sqrt"
+
+    elif op == "=":
+
+        if operator == "+":
+            second_num = int(entry1.get())
+            result = first_num+second_num
+        if operator == "-":
+            second_num = int(entry1.get())
+            result = first_num-second_num
+        if operator == "x":
+            second_num = int(entry1.get())
+            result = first_num*second_num
+        if operator == "/":
+            second_num = int(entry1.get())
+            result = first_num/second_num
+        if operator == "sqrt":
+            result = sqrt(first_num)
+        entry1.delete(0, END)
+        entry1.insert(0, str(result))
 
 
 # --entry field----
@@ -43,18 +82,18 @@ button8 = Button(text="8", padx=40, pady=20, command=lambda: button_click(8))
 button9 = Button(text="9", padx=40, pady=20, command=lambda: button_click(9))
 button0 = Button(text="0", padx=40, pady=20, command=lambda: button_click(0))
 button_add = Button(text="+", padx=40, pady=20,
-                    command=lambda: button_click(101))
+                    command=lambda: operation("+"))
 button_sub = Button(text="-", padx=40, pady=20,
-                    command=lambda: button_click(101))
+                    command=lambda: operation("-"))
 button_div = Button(text="÷", padx=40, pady=20,
-                    command=lambda: button_click(101))
+                    command=lambda: operation("/"))
 button_mul = Button(text="x", padx=40, pady=20,
-                    command=lambda: button_click(101))
+                    command=lambda: operation("x"))
 button_sqrt = Button(text="√", padx=40, pady=20,
-                     command=lambda: button_click(101))
+                     command=lambda: operation("sqrt"))
 
 button_equal = Button(text="=", padx=40, pady=20,
-                      command=lambda: button_click(102))
+                      command=lambda: operation("="))
 button_clear = Button(text="clear", padx=30, pady=20,
                       command=lambda: button_click(100))
 
